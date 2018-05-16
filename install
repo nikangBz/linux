@@ -1,0 +1,22 @@
+系统安装
+
+1.配置网络
+	-1 eth0
+	-2 dns /etc/reso..
+2.取消防火墙
+3.取消selinux
+4.确认可以上网
+5.修改/etc/fstab 更改启动项
+
+
+
+6.配置yum库
+cd /etc/yum.repos.d  下载对应系统版本的repo文件
+wget http://mirrors.163.com/.help/CentOS6-Base-163.repo
+yum clean all 清理缓存
+yum makecache 生成新的缓存
+yum install epel-release
+安装完成之后，会在/etc/yum.repo.d/ 目录下生成两个yum源的repo文件：
+epel.repo  #正式版，所有的软件都是稳定可以信赖的
+epel-testing.repo #测试版，使用时需要慎重
+但是默认情况下，只有正式版是有效状态的，如果想试试测试版的话，需要修改/etc/yum.repos.d/epel-testing.repo，把enabled=0改成enabled=1即可
